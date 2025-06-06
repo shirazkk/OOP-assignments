@@ -247,3 +247,174 @@ Create a class Dog with instance variables name and breed. Add an instance metho
 
 # obj = Dog("jack","german shepard")
 # obj.bark()
+
+
+"""
+
+11. Class Methods
+Assignment:
+Create a class Book with a class variable total_books. Add a class method increment_book_count() to increase the count when a new book is added.
+
+
+"""
+
+# class Book:
+#     total_books=0
+
+#     @classmethod
+#     def increment_book_count(cls,new_book):
+#         cls.total_books +=1
+#         print(f"new book is added:{new_book}")
+
+
+# print(Book().total_books)
+# Book().increment_book_count("love")
+# print(Book().total_books)
+# Book().increment_book_count("Fight")
+# print(Book().total_books)
+
+
+
+"""
+
+12. Static Methods
+Assignment:
+Create a class TemperatureConverter with a static method celsius_to_fahrenheit(c) that returns the Fahrenheit value.
+
+"""
+
+# class TemperatureConverter:
+
+#     @staticmethod
+#     def celsius_to_fahrenheit(c):
+#         return f"Fahrenheit Value is: {c}"
+
+
+# obj = TemperatureConverter()
+# print(obj.celsius_to_fahrenheit(100))
+
+
+"""
+
+13. Composition
+Assignment:
+Create a class Engine and a class Car. Use composition by passing an Engine object to the Car class during initialization. Access a method of the Engine class via the Car class.
+
+"""
+
+# class Engine:
+
+#     def start(self):
+#         print("Engine is started!")
+
+# class Car:
+#     def __init__(self) -> None:
+#         self.engine = Engine()
+
+#     def drive(self):
+#         self.engine.start()
+#         print("Car is moving")
+
+
+# obj = Car()
+# obj.drive()
+
+
+"""
+
+14. Aggregation
+Assignment:
+Create a class Department and a class Employee. Use aggregation by having a Department object store a reference to an Employee object that exists independently of it.
+
+"""
+
+# class Department:
+#     def __init__(self,name):
+#         self.name = name
+
+
+# class Employee:
+#     def __init__(self,name,department):
+#         self.name = name
+#         self.department = department
+
+#     def work(self):
+#         print(f"{self.name} is Working in {self.department.name} department!")
+
+
+# department1 = Department("HR")
+
+
+# employee1 = Employee("jack", department1)
+
+# employee1.work()
+        
+
+# del department1
+
+# employee1.work()
+
+
+
+"""
+
+15. Method Resolution Order (MRO) and Diamond Inheritance
+Assignment:
+Create four classes:
+
+A with a method show(),
+
+B and C that inherit from A and override show(),
+
+D that inherits from both B and C.
+
+Create an object of D and call show() to observe MRO.
+
+
+"""
+
+# class A:
+
+#     def show(self):
+#         print("i am call from class A")
+
+# class B(A):
+
+#     def show(self):
+#         print("I am call from class B")
+
+# class C(A):
+    
+#     def show(self):
+#         print("I am call from class C")
+
+# class D(B,C):
+#     pass
+
+
+# obj = D()
+
+# obj.show()
+
+# print(D.__mro__)
+
+
+"""
+
+16. Function Decorators
+Assignment:
+Write a decorator function log_function_call that prints "Function is being called" before a function executes. Apply it to a function say_hello().
+
+"""
+
+# def log_function_call(func):
+#     def wrapper():
+#         print("Function is being called")
+#         func()
+#     return wrapper
+
+# @log_function_call
+# def say_hello():
+#     print("Hello!")
+
+# say_hello()
