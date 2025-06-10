@@ -418,3 +418,149 @@ Write a decorator function log_function_call that prints "Function is being call
 #     print("Hello!")
 
 # say_hello()
+
+
+"""
+
+17. Class Decorators
+Assignment:
+Create a class decorator add_greeting that modifies a class to add a greet() method returning "Hello from Decorator!". Apply it to a class Person.
+
+"""
+
+# def add_greeting(cls):
+#     def greet(self):
+#         return "Hello from Decorator!"
+#     cls.greet = greet
+#     return cls
+        
+# @add_greeting        
+# class Person:
+#     pass
+
+
+# obj = Person()
+
+# print(obj.greet())
+      
+
+"""
+
+
+18. Property Decorators: @property, @setter, and @deleter
+Assignment:
+Create a class Product with a private attribute _price. Use @property to get the price, @price.setter to update it, and @price.deleter to delete it.
+
+
+"""
+
+# class Product:
+#     def __init__(self,price):
+#         self.__price = price
+
+#     @property
+#     def price(self):
+#        return self.__price
+    
+#     @price.setter
+#     def price(self,value):
+#         if value > 0:
+#             self._price = value  
+#         else:
+#             print("Price must be positive!")
+
+#     @price.deleter
+#     def price(self):
+#         print("Deleting Price!")
+#         del self.__price
+        
+
+# product = Product(200)
+
+# print(product.price)
+
+# new_price=product.price = 300
+
+# print(new_price)
+
+# del product.price
+
+
+"""
+
+19. callable() and __call__()
+Assignment:
+Create a class Multiplier with an __init__() to set a factor. Define a __call__() method that multiplies an input by the factor. Test it with callable() and by calling the object like a function.
+
+"""
+
+
+
+# class Multiplier:
+#     def __init__(self,factor):
+#         self.factor = factor
+
+#     def __call__(self, input):
+#         ans =self.factor * input
+#         print(ans)
+
+# obj = Multiplier(10)
+
+# obj(10)
+
+# print(callable(obj))
+
+
+"""
+
+20. Creating a Custom Exception
+Assignment:
+Create a custom exception InvalidAgeError. Write a function check_age(age) that raises this exception if age < 18. Handle it with try...except.
+
+"""
+
+# class InvalidAgeError(Exception):
+#     pass
+
+
+# def checkage(age):
+#     try:
+#         if age < 18:
+#             raise InvalidAgeError("Age Must be greeter than 18!")
+#         return age
+#     except InvalidAgeError as e:
+#         print(f"Error: {e}")
+#         return None
+
+# my_age = checkage(11)
+# print(my_age)
+
+
+"""
+
+21. Make a Custom Class Iterable
+Assignment:
+Create a class Countdown that takes a start number. Implement __iter__() and __next__() to make the object iterable in a for-loop, counting down to 0.
+
+"""
+
+# class Countdown:
+#     def __init__(self,start):
+#         self.start = start
+#         self.current = start
+
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         if self.current <0:
+#             raise StopIteration
+#         value = self.current
+#         self.current -= 1
+#         return value
+
+# obj = Countdown(10)
+
+
+# for i in obj:
+#     print(i)
